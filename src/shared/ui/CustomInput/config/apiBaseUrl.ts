@@ -1,0 +1,1 @@
+export const apiBaseUrl ='http://hub.tikplan.ir/api/v2/reservation/flight/search/airport?str=is'
