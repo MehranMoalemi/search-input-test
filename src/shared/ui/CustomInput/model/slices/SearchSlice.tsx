@@ -1,5 +1,6 @@
 import { useDebounce } from '@/src/lib/debounce';
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { apiBaseUrl } from '../../config/apiBaseUrl';
 
 interface SearchContextProps {
   query: string;
@@ -18,7 +19,7 @@ export const SearchProvider: React.FC<SearchProviderProps> = ({ children }) => {
   const [results, setResults] = useState<string[]>([]);
 
   const fetchResults = async (searchQuery: string) => {
-    const response = await fetch(`/api/search?query=${searchQuery}`);
+    const response = await fetch(apiBaseUrl(query));
     const data = await response.json();
     setResults(data.results);
   };
